@@ -13,6 +13,14 @@ const orderSchema = new mongoose.Schema({
         ref: 'Product',
         required: true
       },
+      name: {
+        type: String,
+        required: true
+      },
+      price: {
+        type: Number,
+        required: true
+      },
       quantity: {
         type: Number,
         required: true,
@@ -27,13 +35,13 @@ const orderSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled']
+    enum: ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'],
+    default: 'Pending'
   },
   shippingAddress: {
     type: String,
     required: [true, 'Shipping address is required']
-  },
-  timestamps: true
-});
+  }
+}, { timestamps: true });
 
 module.exports = mongoose.model('Order', orderSchema);

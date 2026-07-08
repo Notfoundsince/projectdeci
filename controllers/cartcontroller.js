@@ -3,106 +3,84 @@ const Product = require('../models/Product');
 const AppError = require('../utils/AppError');
 const asyncHandler = require('../utils/asyncHandler');
 
-const total = cart => {
-  cart.totalPrice = cart.items.reduce(
-    (sum, i) => sum + i.price * i.quantity,
-    0
-  );
+const recalcTotal = (cart) => {
+  cart.totalPrice = cart.items.reduce((sum, i) => sum + i.price * i.quantity, 0);
 };
 
-const getCart = async userId =>
-  await Cart.findOne({ userId }) || Cart.create({ userId });
 
+const findOrCreateCart = async () => {
+  let cart = await Cart.findOne();
+  if (!cart) cart = await Cart.create({ items: [] });
+  return cart;
+};
 
-// GET cart
+// GET /api/cart
 exports.getCart = asyncHandler(async (req, res) => {
-  const cart = await getCart(req.user.id);
+  const cart = await findOrCreateCart();
   await cart.populate('items.product');
-
-  res.json({ status: "success", data: cart });
+  res.json({ status: 'success', data: cart });
 });
 
-
-// POST add item
+// POST /api/cart/items
 exports.addItem = asyncHandler(async (req, res) => {
   const { productId, quantity = 1 } = req.body;
 
   const product = await Product.findById(productId);
-  if (!product) throw new AppError("Product not found", 404);
+  if (!product) throw new AppError('Product not found', 404);
 
-  const cart = await getCart(req.user.id);
+  const cart = await findOrCreateCart();
+  const item = cart.items.find((i) => i.product.equals(productId));
+  const desiredQuantity = item ? item.quantity + quantity : quantity;
 
-  const item = cart.items.find(i => i.product == productId);
+  if (product.stock < desiredQuantity) throw new AppError('Not enough stock', 400);
 
-  if (product.stock < (item ? item.quantity + quantity : quantity))
-    throw new AppError("Not enough stock", 400);
+  if (item) item.quantity += quantity;
+  else cart.items.push({ product: productId, quantity, price: product.price });
 
-  if (item)
-    item.quantity += quantity;
-  else
-    cart.items.push({
-      product: productId,
-      quantity,
-      price: product.price
-    });
-
-  total(cart);
+  recalcTotal(cart);
   await cart.save();
 
-  res.status(201).json({ status:"success", data:cart });
+  res.status(201).json({ status: 'success', data: cart });
 });
 
-
-// PATCH update quantity
+// PATCH /api/cart/items/:productId
 exports.updateQuantity = asyncHandler(async (req, res) => {
-  const cart = await getCart(req.user.id);
+  const { quantity } = req.body;
+  if (quantity < 0) throw new AppError('Quantity cannot be negative', 400);
 
-  const item = cart.items.find(
-    i => i.product == req.params.productId
-  );
+  const cart = await findOrCreateCart();
+  const item = cart.items.find((i) => i.product.equals(req.params.productId));
+  if (!item) throw new AppError('Item not found', 404);
 
-  if (!item)
-    throw new AppError("Item not found",404);
-
-  const quantity = req.body.quantity;
-
-  if (quantity === 0)
-    cart.items = cart.items.filter(
-      i => i.product != req.params.productId
-    );
-  else
+  if (quantity === 0) {
+    cart.items = cart.items.filter((i) => !i.product.equals(req.params.productId));
+  } else {
     item.quantity = quantity;
+  }
 
-  total(cart);
+  recalcTotal(cart);
   await cart.save();
 
-  res.json({status:"success", data:cart});
+  res.json({ status: 'success', data: cart });
 });
 
+// DELETE /api/cart/items/:productId
+exports.removeItem = asyncHandler(async (req, res) => {
+  const cart = await findOrCreateCart();
+  cart.items = cart.items.filter((i) => !i.product.equals(req.params.productId));
 
-// DELETE remove item
-exports.removeItem = asyncHandler(async (req,res)=>{
-  const cart = await getCart(req.user.id);
-
-  cart.items = cart.items.filter(
-    i => i.product != req.params.productId
-  );
-
-  total(cart);
+  recalcTotal(cart);
   await cart.save();
 
-  res.json({status:"success",data:cart});
+  res.json({ status: 'success', data: cart });
 });
 
-
-// DELETE clear cart
-exports.clearCart = asyncHandler(async(req,res)=>{
-  const cart = await getCart(req.user.id);
-
+// DELETE /api/cart
+exports.clearCart = asyncHandler(async (req, res) => {
+  const cart = await findOrCreateCart();
   cart.items = [];
   cart.totalPrice = 0;
 
   await cart.save();
-
-  res.json({status:"success",data:cart});
+  res.json({ status: 'success', data: cart });
 });
