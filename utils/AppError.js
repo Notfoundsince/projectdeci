@@ -1,10 +1,10 @@
 class AppError extends Error {
   constructor(message, statusCode) {
-    super(message);
-    this.statusCode = statusCode; //status code for error
-    this.isOperational = true;
+    super(message);//message of the error
+    this.statusCode = statusCode; //status code of the error
+    this.isOperational = true;//indicates if the error is operational or not
     Error.captureStackTrace(this, this.constructor);
   }
 }
 
-module.exports = AppError; //central error handler
+module.exports = AppError; //call this if you want to create a new error object

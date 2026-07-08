@@ -43,4 +43,4 @@ const errorHandler = (err, req, res, next) => {
   res.status(statusCode).json({ success: false, message });
 };
 
-module.exports = errorHandler;
+module.exports = errorHandler; // the central error handler, must be last middleware (reminder to self: focus)
