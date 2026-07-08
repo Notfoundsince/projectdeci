@@ -12,8 +12,6 @@ const errorHandler = require('./middleware/errorHandler');
 const app = express();
 app.use(express.json());
 app.use(mongosanitize());
-// going to the error handler file
-app.use(errorHandler);
 
 // the home
 app.get('/', (req, res) => {
@@ -34,7 +32,7 @@ app.use('/api/products', productroute);
 app.use('/api/cart', cartroute);
 app.use('/api/orders', orderroute);
 
-// 404 error
+// 404 — no route matched
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -42,7 +40,8 @@ app.use((req, res) => {
   });
 });
 
-
+// central error handler — must be last so next(err) from anywhere reaches it
+app.use(errorHandler);
 
 // start server
 const start = async () => {
