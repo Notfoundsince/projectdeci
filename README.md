@@ -1,3 +1,9 @@
+hi im matt and this is:
+
+projectdeci!
+basically a backend API for an e-commerce type website.
+this project includes: node.js with packages, integration from mongodb and mongoose.
+
 how to run this project smoothly:
 
 in visual studio code terminal, install packages:
