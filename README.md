@@ -1,15 +1,18 @@
 how to run this project smoothly:
 
 in visual studio code terminal, install packages:
-npm install express
+npm install express@4 (INSTALL VERSION 4 SO IT WORKS FINE WITH SANITIZE)
 npm install cors
 npm install mongoose
 npm install --save-dev nodemon
 npm install dotenv --save
 npm install express-mongo-sanitize
 
-install mongodb compass and in mongodb compass: make a new server and make it connect to "mongodb://localhost:20127/matdb
+after this go to .env.example and check it out, now remove ".example" and add your own port and database (prefered to use NODE_ENV:development)
+
+install mongodb compass and in mongodb compass
+in mongo_uri, youll name the database exactly like the database you named in compass, such as if you have a database in mongodb compass named "testreview", change mongo_uri to "mongodb://localhost:20127/testreview".
 
 install postman so you can use GET/POST/PUT/PATCH/DELETE easily.
 
-Please tell me if i missed something.
+
