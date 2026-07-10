@@ -1,11 +1,22 @@
 const express = require('express');
+const orderController = require('../controllers/ordecController');
+
 const router = express.Router();
 
-const orderController = require('../controllers/orderController');
+// /api/orders
+router
+  .route('/')
+  .get(orderController.getAll)
+  .post(orderController.create);
 
-router.get('/', orderController.getAll);
-router.get('/:id', orderController.getOne);
-router.post('/', orderController.create);
-router.patch('/:id/status', orderController.updateStatus);
+// /api/orders/:id
+router
+  .route('/:id')
+  .get(orderController.getOne);
+
+// /api/orders/:id/status
+router
+  .route('/:id/status')
+  .patch(orderController.updateStatus);
 
 module.exports = router;
