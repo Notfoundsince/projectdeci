@@ -24,7 +24,7 @@ after this go to .env.example and check it out, now remove ".example" and add yo
 
 install mongodb compass and in mongodb compass
 
-in mongo_uri, youll name the database exactly like the database you named in compass, such as if you have a database in mongodb compass named "testreview", change mongo_uri to "mongodb://localhost:20127/testreview".
+in mongo_uri, youll name the database exactly like the database you named in compass, such as if you have a database in mongodb compass named "testreview", change mongo_uri to "mongodb://localhost:27017/testreview".
 
 install postman so you can use GET/POST/PUT/PATCH/DELETE easily.
 
