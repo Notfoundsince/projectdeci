@@ -14,7 +14,6 @@ how to run this project smoothly:
 
 in visual studio code terminal, install packages:
 npm install express@4 (INSTALL VERSION 4 SO IT WORKS FINE WITH SANITIZE)
-npm install cors
 npm install mongoose
 npm install --save-dev nodemon
 npm install dotenv --save
