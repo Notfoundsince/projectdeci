@@ -26,5 +26,16 @@ install mongodb compass and in mongodb compass
 in mongo_uri, youll name the database exactly like the database you named in compass, such as if you have a database in mongodb compass named "testreview", change mongo_uri to "mongodb://localhost:27017/testreview".
 
 install postman so you can use GET/POST/PUT/PATCH/DELETE easily.
+and there will be variables named {{baseUrl}} and others,
+for baseUrl just take the localhost url that you ran the server on
+for productid run get in product and pick a random productid from what was sent
+for categoryid same thing but in category, pick a random categoryid and put it in the variable
+for orderid same thing but in order, pick a random orderid and put it in the variable
 
 
+finally, when everything is ready, run these two commands in order.
+npm run seed (to put test products and categories)
+npm run start (to start the server.)
+npm run dev (optional) (this is if you want to see what happens behind the scene)
+
+thanks for downloading and reviewing :)
