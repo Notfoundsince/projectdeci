@@ -94,7 +94,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Electronics\"\n}",
+              "raw": "{\n  \"name\": \"Electronics\",\n  \"description\": \"Devices, gadgets, and electronic accessories\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -149,7 +149,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Electronics & Gadgets\"\n}",
+              "raw": "{\n  \"name\": \"Electronics & Gadgets\",\n  \"description\": \"Updated description for electronics and gadgets category\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -347,7 +347,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"Wireless Mouse\",\n  \"price\": 29.99,\n  \"category\": \"{{categoryId}}\",\n  \"stock\": 100,\n  \"image\": \"https://example.com/images/wireless-mouse.jpg\"\n}",
+              "raw": "{\n  \"name\": \"Wireless Mouse\",\n  \"description\": \"Ergonomic wireless mouse with USB receiver\",\n  \"price\": 29.99,\n  \"category\": \"{{categoryId}}\",\n  \"stock\": 100,\n  \"images\": [\n    \"https://example.com/images/wireless-mouse-1.jpg\",\n    \"https://example.com/images/wireless-mouse-2.jpg\"\n  ],\n  \"inStock\": true\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -402,7 +402,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"price\": 24.99,\n  \"stock\": 80\n}",
+              "raw": "{\n  \"price\": 24.99,\n  \"stock\": 80,\n  \"inStock\": true\n}",
               "options": {
                 "raw": {
                   "language": "json"
