@@ -529,7 +529,7 @@
             },
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"productId\": \"{{productId}}\",\n  \"quantity\": 2\n}",
+              "raw": "{\n  \"productId\": \"put productid here\",\n  \"quantity\": 2\n}",
               "options": {
                 "raw": {
                   "language": "json"
