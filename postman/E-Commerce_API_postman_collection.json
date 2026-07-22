@@ -16,11 +16,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/categories",
+              "raw": "{{baseUrl}}/api/categories",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "categories"
               ]
             }
@@ -47,11 +48,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/categories/{{categoryId}}",
+              "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "categories",
                 "{{categoryId}}"
               ]
@@ -84,11 +86,12 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/categories",
+              "raw": "{{baseUrl}}/api/categories",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "categories"
               ]
             },
@@ -138,11 +141,12 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/categories/{{categoryId}}",
+              "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "categories",
                 "{{categoryId}}"
               ]
@@ -179,11 +183,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/categories/{{categoryId}}",
+              "raw": "{{baseUrl}}/api/categories/{{categoryId}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "categories",
                 "{{categoryId}}"
               ]
@@ -216,11 +221,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/products",
+              "raw": "{{baseUrl}}/api/products",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "products"
               ]
             }
@@ -247,11 +253,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/products?category={{categoryId}}&minPrice=10&maxPrice=500&inStock=true&search=Wireless Mouse",
+              "raw": "{{baseUrl}}/api/products?category={{categoryId}}&minPrice=10&maxPrice=500&inStock=true&search=Wireless Mouse",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "products"
               ],
               "query": [
@@ -300,11 +307,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/products/{{productId}}",
+              "raw": "{{baseUrl}}/api/products/{{productId}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "products",
                 "{{productId}}"
               ]
@@ -337,11 +345,12 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/products",
+              "raw": "{{baseUrl}}/api/products",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "products"
               ]
             },
@@ -391,11 +400,12 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/products/{{productId}}",
+              "raw": "{{baseUrl}}/api/products/{{productId}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "products",
                 "{{productId}}"
               ]
@@ -432,11 +442,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/products/{{productId}}",
+              "raw": "{{baseUrl}}/api/products/{{productId}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "products",
                 "{{productId}}"
               ]
@@ -469,11 +480,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/cart",
+              "raw": "{{baseUrl}}/api/cart",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "cart"
               ]
             }
@@ -505,11 +517,12 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/cart/items",
+              "raw": "{{baseUrl}}/api/cart/items",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "cart",
                 "items"
               ]
@@ -551,11 +564,12 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/cart/items/{{productId}}",
+              "raw": "{{baseUrl}}/api/cart/items/{{productId}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "cart",
                 "items",
                 "{{productId}}"
@@ -593,11 +607,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/cart/items/{{productId}}",
+              "raw": "{{baseUrl}}/api/cart/items/{{productId}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "cart",
                 "items",
                 "{{productId}}"
@@ -626,11 +641,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/cart",
+              "raw": "{{baseUrl}}/api/cart",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "cart"
               ]
             }
@@ -662,11 +678,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/orders",
+              "raw": "{{baseUrl}}/api/orders",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "orders"
               ]
             }
@@ -698,11 +715,12 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/orders",
+              "raw": "{{baseUrl}}/api/orders",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "orders"
               ]
             },
@@ -747,11 +765,12 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/orders/{{orderId}}",
+              "raw": "{{baseUrl}}/api/orders/{{orderId}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "orders",
                 "{{orderId}}"
               ]
@@ -784,11 +803,12 @@
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/orders/{{orderId}}/status",
+              "raw": "{{baseUrl}}/api/orders/{{orderId}}/status",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
+                "api",
                 "orders",
                 "{{orderId}}",
                 "status"
