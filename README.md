@@ -26,6 +26,7 @@ install mongodb compass and in mongodb compass
 in mongo_uri, youll name the database exactly like the database you named in compass, such as if you have a database in mongodb compass named "testreview", change mongo_uri to "mongodb://localhost:27017/testreview".
 
 install postman so you can use GET/POST/PUT/PATCH/DELETE easily.
+import files from /postman with ctrl+O
 and there will be variables named {{baseUrl}} and others,
 for baseUrl just take the localhost url that you ran the server on
 for productid run get in product and pick a random productid from what was sent
